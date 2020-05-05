@@ -35,6 +35,9 @@ void process_start (void) {
 	PIT_LDVAL0 = SystemCoreClock/100;
 	NVIC_EnableIRQ(PIT0_IRQn);
 	process_begin();
+	if (process_queue == NULL) {
+		return;
+	}
 }	
 
 unsigned int * process_select (unsigned int * cursp) {
